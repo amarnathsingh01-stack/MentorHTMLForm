@@ -1,183 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Buddy Mentor – GET Engagement Score</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f9fafb; color: #111827; padding: 40px; max-width: 800px; margin: auto; }
-    h2 { color: #1e3a8a; margin-bottom: 20px; }
-    .question { margin-bottom: 15px; }
-    label { display: block; font-weight: bold; margin-bottom: 5px; }
-    select { padding: 6px; width: 250px; border-radius: 5px; border: 1px solid #cbd5e1; }
-    button { margin-top: 25px; padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; }
-    button:hover { background: #1d4ed8; }
-    #result { margin-top: 25px; font-size: 1.2em; font-weight: bold; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buddy–GET Engagement Assessment</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f8fb;
+    color: #333;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h2 {
+    text-align: center;
+    color: #005b96;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    background: #005b96;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #007acc;
+  }
+  #result {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  #result span {
+    display: block;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+  }
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .container { padding: 15px; }
+  }
+</style>
 </head>
 <body>
-
-  <h2>Mentor - GET Engagement Score Calculator</h2>
+<div class="container">
+  <h2>Buddy–GET Engagement Assessment</h2>
   <form id="engagementForm">
-    
-    <div class="question">
-      <label>1. How frequently do you interact with your GET on safety topics?</label>
-      <select id="q1">
-        <option value="6">Daily</option>
-        <option value="5">Weekly</option>
-        <option value="4">Fortnightly</option>
-        <option value="3">Monthly</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
 
-    <div class="question">
-      <label>2. How often do you discuss technical process operations (unit rounds, control room discussions, troubleshooting)?</label>
-      <select id="q2">
-        <option value="6">Daily</option>
-        <option value="5">Weekly</option>
-        <option value="4">Fortnightly</option>
-        <option value="3">Monthly</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <!-- 1–15 Questions -->
+    <label>1. How frequently do you interact with your GET on safety topics?</label>
+    <select name="q1">
+      <option>Daily</option><option>Weekly</option><option>Fortnightly</option>
+      <option>Monthly</option><option>Rarely</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>3. How frequently do you meet your GET for informal guidance (career, personal well-being, etc.)?</label>
-      <select id="q3">
-        <option value="6">Daily</option>
-        <option value="5">Weekly</option>
-        <option value="4">Fortnightly</option>
-        <option value="3">Monthly</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>2. How often do you discuss technical process operations (unit rounds, control room discussions, troubleshooting)?</label>
+    <select name="q2">
+      <option>Daily</option><option>Weekly</option><option>Fortnightly</option>
+      <option>Monthly</option><option>Rarely</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>4. How often do you review your GET’s learning progress or assignments?</label>
-      <select id="q4">
-        <option value="6">Daily</option>
-        <option value="5">Weekly</option>
-        <option value="4">Fortnightly</option>
-        <option value="3">Monthly</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>3. How frequently do you meet your GET for informal guidance (career, personal well-being, etc.)?</label>
+    <select name="q3">
+      <option>Daily</option><option>Weekly</option><option>Fortnightly</option>
+      <option>Monthly</option><option>Rarely</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>5. How actively do you provide exposure to plant experiences (SOPs, SMPs, incident learning)?</label>
-      <select id="q5">
-        <option value="5">Very Active</option>
-        <option value="4">Active</option>
-        <option value="3">Moderate</option>
-        <option value="2">Minimal</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>4. How often do you review your GET’s learning progress or assignments?</label>
+    <select name="q4">
+      <option>Daily</option><option>Weekly</option><option>Fortnightly</option>
+      <option>Monthly</option><option>Rarely</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>6. How frequently do you evaluate or discuss technical quizzes / assessments?</label>
-      <select id="q6">
-        <option value="6">Daily</option>
-        <option value="5">Weekly</option>
-        <option value="4">Fortnightly</option>
-        <option value="3">Monthly</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>5. How actively do you provide exposure to plant experiences (SOPs, LSR, incident learning)?</label>
+    <select name="q5">
+      <option>Very Active</option><option>Active</option><option>Moderate</option>
+      <option>Minimal</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>7. How often do you reinforce safety behavior and culture?</label>
-      <select id="q7">
-        <option value="5">Very Often</option>
-        <option value="4">Often</option>
-        <option value="3">Sometimes</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>6. How frequently do you evaluate or discuss technical quizzes / assessments?</label>
+    <select name="q6">
+      <option>Daily</option><option>Weekly</option><option>Fortnightly</option>
+      <option>Monthly</option><option>Rarely</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>8. How often do you recognize and encourage desired plant discipline?</label>
-      <select id="q8">
-        <option value="5">Very Often</option>
-        <option value="4">Often</option>
-        <option value="3">Sometimes</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>7. How often do you reinforce safety behavior and culture?</label>
+    <select name="q7">
+      <option>Very Often</option><option>Often</option><option>Sometimes</option>
+      <option>Rarely</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>9. How regularly do you provide feedback to your GET on performance and conduct?</label>
-      <select id="q9">
-        <option value="5">Very Regular</option>
-        <option value="4">Regular</option>
-        <option value="3">Occasional</option>
-        <option value="2">Rare</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>8. How often do you recognize and encourage desired plant discipline?</label>
+    <select name="q8">
+      <option>Very Often</option><option>Often</option><option>Sometimes</option>
+      <option>Rarely</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>10. How frequently do you seek feedback from your GET about your mentoring?</label>
-      <select id="q10">
-        <option value="5">Very Regular</option>
-        <option value="4">Regular</option>
-        <option value="3">Occasional</option>
-        <option value="2">Rare</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>9. How regularly do you provide feedback to your GET on performance and conduct?</label>
+    <select name="q9">
+      <option>Very Regular</option><option>Regular</option><option>Occasional</option>
+      <option>Rare</option><option>Never</option>
+    </select>
 
-    <div class="question">
-      <label>11. How often does your GET approach you freely for guidance or sharing issues?</label>
-      <select id="q11">
-        <option value="5">Very Often</option>
-        <option value="4">Often</option>
-        <option value="3">Sometimes</option>
-        <option value="2">Rarely</option>
-        <option value="1">Never</option>
-      </select>
-    </div>
+    <label>10. How frequently do you seek feedback from your GET about your mentoring?</label>
+    <select name="q10">
+      <option>Very Regular</option><option>Regular</option><option>Occasional</option>
+      <option>Rare</option><option>Never</option>
+    </select>
+
+    <label>11. How often does your GET approach you freely for guidance or sharing issues?</label>
+    <select name="q11">
+      <option>Very Often</option><option>Often</option><option>Sometimes</option>
+      <option>Rarely</option><option>Never</option>
+    </select>
+
+    <label>12. How effectively do you support your GET in setting learning goals and development plans?</label>
+    <select name="q12">
+      <option>Very Effective</option><option>Effective</option><option>Moderate</option>
+      <option>Limited</option><option>Not at all</option>
+    </select>
+
+    <label>13. How well do you guide your GET in connecting theory to real-world plant applications?</label>
+    <select name="q13">
+      <option>Very Well</option><option>Well</option><option>Somewhat</option>
+      <option>Rarely</option><option>Never</option>
+    </select>
+
+    <label>14. How often do you appreciate your GET’s achievements or improvements?</label>
+    <select name="q14">
+      <option>Very Often</option><option>Often</option><option>Sometimes</option>
+      <option>Rarely</option><option>Never</option>
+    </select>
+
+    <label>15. How confident are you in your GET’s professional growth under your mentoring?</label>
+    <select name="q15">
+      <option>Very Confident</option><option>Confident</option><option>Neutral</option>
+      <option>Low Confidence</option><option>No Confidence</option>
+    </select>
 
     <button type="button" onclick="calculateScore()">Calculate Engagement Score</button>
   </form>
-
   <div id="result"></div>
+</div>
 
-  <script>
-    function calculateScore() {
-      // Convert all answers to numeric values
-      const responses = [];
-      for (let i = 1; i <= 11; i++) {
-        responses.push(Number(document.getElementById("q" + i).value));
-      }
+<script>
+function calculateScore() {
+  const form = document.forms['engagementForm'];
+  let total = 0, count = 0;
+  const weights = {
+    'Daily':100,'Weekly':85,'Fortnightly':70,'Monthly':55,'Rarely':35,'Never':0,
+    'Very Active':100,'Active':85,'Moderate':70,'Minimal':50,'Never':0,
+    'Very Often':100,'Often':85,'Sometimes':65,'Rarely':40,'Never':0,
+    'Very Regular':100,'Regular':85,'Occasional':65,'Rare':40,'Never':0,
+    'Very Effective':100,'Effective':85,'Moderate':70,'Limited':45,'Not at all':0,
+    'Very Well':100,'Well':85,'Somewhat':70,'Rarely':45,'Never':0,
+    'Very Confident':100,'Confident':85,'Neutral':70,'Low Confidence':45,'No Confidence':0
+  };
 
-      // Normalize each score to a 0–1 scale
-      const normalized = responses.map((r, i) => {
-        // Questions 1–4 and 6 are out of 6; others are out of 5
-        return (i < 4 || i === 5) ? (r / 6) : (r / 5);
-      });
-
-      // Average and scale to 100
-      const score = (normalized.reduce((a, b) => a + b, 0) / normalized.length) * 100;
-
-      // Interpret the result
-      let level = "";
-      if (score < 50) level = "Low Engagement – Improvement needed.";
-      else if (score < 70) level = "Moderate Engagement – Some enhancement required.";
-      else if (score < 85) level = "Strong Engagement – Good mentor-mentee connection.";
-      else level = "Highly Engaged – Excellent mentoring relationship.";
-
-      // Display result
-      document.getElementById("result").innerHTML =
-        `Your Engagement Score: <b>${score.toFixed(1)}</b> / 100<br>${level}`;
+  for (let i=0; i<form.elements.length; i++) {
+    const value = form.elements[i].value;
+    if (weights[value] !== undefined) {
+      total += weights[value];
+      count++;
     }
-  </script>
+  }
+
+  const score = (total / count).toFixed(1);
+  let level = "";
+  if (score >= 85) level = "🌟 Highly Engaged";
+  else if (score >= 70) level = "👍 Engaged";
+  else if (score >= 50) level = "⚙️ Moderate Engagement";
+  else if (score >= 30) level = "⚠️ Low Engagement";
+  else level = "❌ Needs Improvement";
+
+  document.getElementById('result').innerHTML = 
+    `⭐ <b>Your Engagement Score: ${score} / 100</b><span>Level: ${level}</span>`;
+}
+</script>
 </body>
 </html>
